@@ -1,5 +1,4 @@
-import utilty as util
-import numpy as np
+from src import utilty as util
 
 
 def test_open_image():
