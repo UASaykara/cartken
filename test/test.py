@@ -1,4 +1,4 @@
-from src import utilty as util
+from src import utility as util
 from src import operation as op
 import numpy as np
 
