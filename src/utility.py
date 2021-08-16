@@ -1,17 +1,18 @@
 from PIL import Image
 import numpy as np
 from random import randint
+import os
 
 
 def convert_image_to_nparray(file_name):
-    return np.asarray(Image.open(file_name))
+    return np.asarray(Image.open(os.path.abspath(os.getcwd()) + file_name))
 
 
 def create_image_from_nparray(array, file_name, is_rgb):
     if is_rgb:
-        Image.fromarray(np.uint8(array)).save(file_name)
+        Image.fromarray(np.uint8(array)).save(os.path.abspath(os.getcwd()) + file_name)
     else:
-        Image.fromarray(array, "L").save(file_name)
+        Image.fromarray(array, "L").save(os.path.abspath(os.getcwd()) + file_name)
 
 
 def rgb_to_binary(array):
@@ -53,7 +54,7 @@ def construct_segment_map(segment_list, x, y):
 
 def segment_list_to_file(segment_list, file_name):
     counter = 1
-    file = open(file_name + ".txt", "w")
+    file = open(os.path.abspath(os.getcwd()) + file_name + ".txt", "w")
     file.write("Segmentation List:\n")
     for segment in segment_list:
         file.write(str(counter) + ": X= " + str(segment.x) + " | Y= " + str(segment.y) + " | Pose= " + segment.pose + " | Length= " + str(segment.length) + "\n")
