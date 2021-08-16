@@ -1,7 +1,7 @@
 Segmentation List:
-1: X= 0 | Y= 1 | Pose= Horizontal | Length= 18
-2: X= 1 | Y= 0 | Pose= Vertical | Length= 12
-3: X= 1 | Y= 19 | Pose= Vertical | Length= 8
+1: X= 0 | Y= 0 | Pose= Vertical | Length= 20
+2: X= 0 | Y= 1 | Pose= Horizontal | Length= 19
+3: X= 1 | Y= 19 | Pose= Vertical | Length= 19
 4: X= 4 | Y= 14 | Pose= Vertical | Length= 6
 5: X= 5 | Y= 4 | Pose= Vertical | Length= 3
 6: X= 5 | Y= 5 | Pose= Horizontal | Length= 2
@@ -9,8 +9,7 @@ Segmentation List:
 8: X= 7 | Y= 5 | Pose= Vertical | Length= 1
 9: X= 9 | Y= 10 | Pose= Horizontal | Length= 4
 10: X= 9 | Y= 15 | Pose= Horizontal | Length= 4
-11: X= 10 | Y= 19 | Pose= Vertical | Length= 9
-12: X= 13 | Y= 1 | Pose= Horizontal | Length= 7
-13: X= 14 | Y= 1 | Pose= Horizontal | Length= 7
-14: X= 15 | Y= 0 | Pose= Vertical | Length= 4
-15: X= 19 | Y= 1 | Pose= Horizontal | Length= 18
+11: X= 13 | Y= 1 | Pose= Horizontal | Length= 7
+12: X= 13 | Y= 12 | Pose= Horizontal | Length= 6
+13: X= 14 | Y= 12 | Pose= Horizontal | Length= 2
+14: X= 19 | Y= 1 | Pose= Horizontal | Length= 18
