@@ -5,14 +5,14 @@ import os
 
 
 def convert_image_to_nparray(file_name):
-    return np.asarray(Image.open(os.path.abspath(os.getcwd()) + file_name))
+    return np.asarray(Image.open(os.getcwd() + file_name))
 
 
 def create_image_from_nparray(array, file_name, is_rgb):
     if is_rgb:
-        Image.fromarray(np.uint8(array)).save(os.path.abspath(os.getcwd()) + file_name)
+        Image.fromarray(np.uint8(array)).save(os.getcwd() + file_name)
     else:
-        Image.fromarray(array, "L").save(os.path.abspath(os.getcwd()) + file_name)
+        Image.fromarray(array, "L").save(os.getcwd() + file_name)
 
 
 def rgb_to_binary(array):
@@ -60,5 +60,6 @@ def segment_list_to_file(segment_list, file_name):
         file.write(str(counter) + ": X= " + str(segment.x) + " | Y= " + str(segment.y) + " | Pose= " + segment.pose + " | Length= " + str(segment.length) + "\n")
         counter = counter + 1
     file.close()
+    return True
 
 
