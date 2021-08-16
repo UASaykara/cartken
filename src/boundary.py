@@ -19,3 +19,4 @@ def is_boundary(i, j, b_map):
         return True
     else:
         return False
+

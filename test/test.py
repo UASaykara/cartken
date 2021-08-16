@@ -1,6 +1,5 @@
 from src import utility as util
-from src import operation as op
-import numpy as np
+from src import boundary as op
 
 
 def test_open_image():
