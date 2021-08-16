@@ -1,5 +1,6 @@
 from PIL import Image
 import numpy as np
+from random import randint
 
 
 def convert_image_to_nparray(file_name):
@@ -8,7 +9,7 @@ def convert_image_to_nparray(file_name):
 
 def create_image_from_nparray(array, file_name, is_rgb):
     if is_rgb:
-        Image.fromarray(array, "RGB").save(file_name)
+        Image.fromarray(np.uint8(array)).save(file_name)
     else:
         Image.fromarray(array, "L").save(file_name)
 
@@ -36,3 +37,15 @@ def binary_to_rgb(map):
                 rgb_map[i][j] = (0, 0, 0)
     return rgb_map
 
+
+def construct_segment_map(segment_list, x, y):
+    rgb_map = np.full((x, y, 3), fill_value=255, dtype=np.uint8)
+    for segment in segment_list:
+        new_color = (randint(0, 128), randint(0, 128), randint(0, 128))
+        if segment.pose == "Horizontal":
+            for i in range(segment.y, segment.y + segment.length):
+                rgb_map[segment.x][i] = new_color
+        else:
+            for i in range(segment.x, segment.x + segment.length):
+                rgb_map[i][segment.y] = new_color
+    return rgb_map
