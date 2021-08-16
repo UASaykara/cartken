@@ -18,3 +18,21 @@ def rgb_to_binary(array):
     binary_map[binary_map < 128] = 1
     binary_map[binary_map >= 128] = 0
     return binary_map
+
+
+def binary_to_grayscale(map):
+    map[map == 0] = 255
+    map[map == 1] = 0
+    return map
+
+
+def binary_to_rgb(map):
+    rgb_map = np.zeros((map.shape[0], map.shape[1], 3), dtype=np.uint8)
+    for i in range(map.shape[0]):
+        for j in range(map.shape[1]):
+            if map[i][j] == 0:
+                rgb_map[i][j] = (255, 255, 255)
+            else:
+                rgb_map[i][j] = (0, 0, 0)
+    return rgb_map
+
