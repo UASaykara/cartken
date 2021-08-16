@@ -35,9 +35,16 @@ def test_find_longer_pose():
     print(seg.find_longer_pose(binary_map, 1, 0))
 
 
+def test_segment_finder():
+    image = util.convert_image_to_nparray("/home/utku/cartken/images/boundary_test.jpg")
+    binary_map = util.rgb_to_binary(image)
+    seg.find_list_of_segment(binary_map)
+
+
 if __name__ == "__main__":
     img = test_open_image()
     test_save_image(img)
     test_binary_map(img)
     test_matrix_to_boundary_operation()
     test_find_longer_pose()
+    test_segment_finder()
