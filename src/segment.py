@@ -63,8 +63,3 @@ def extract_segment(binary_map, segment):
     else:
         for i in range(segment.x, segment.x + segment.length):
             binary_map[i][segment.y] = 0
-
-
-def check_equal_parallel_segment():
-    pass
-
