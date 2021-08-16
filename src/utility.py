@@ -49,3 +49,15 @@ def construct_segment_map(segment_list, x, y):
             for i in range(segment.x, segment.x + segment.length):
                 rgb_map[i][segment.y] = new_color
     return rgb_map
+
+
+def segment_list_to_file(segment_list, file_name):
+    counter = 1
+    file = open(file_name + ".txt", "w")
+    file.write("Segmentation List:\n")
+    for segment in segment_list:
+        file.write(str(counter) + ": X= " + str(segment.x) + " | Y= " + str(segment.y) + " | Pose= " + segment.pose + " | Length= " + str(segment.length) + "\n")
+        counter = counter + 1
+    file.close()
+
+

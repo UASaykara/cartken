@@ -49,6 +49,13 @@ def test_segment_rgb():
     util.create_image_from_nparray(rgb_map, "images/segment_test.png", True)
 
 
+def test_segment_file_list():
+    image = util.convert_image_to_nparray("/home/utku/cartken/images/boundary_test.png")
+    binary_map = util.rgb_to_binary(image)
+    list = seg.find_list_of_segment(binary_map)
+    util.segment_list_to_file(list, "images/segment_list")
+
+
 if __name__ == "__main__":
     img = test_open_image()
     test_save_image(img)
@@ -57,3 +64,4 @@ if __name__ == "__main__":
     test_find_longer_pose()
     test_segment_finder()
     test_segment_rgb()
+    test_segment_file_list()
