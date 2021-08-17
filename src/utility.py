@@ -4,10 +4,12 @@ from random import randint
 import os
 
 
+# This function converts image to numpy array
 def convert_image_to_nparray(file_name):
     return np.asarray(Image.open(os.getcwd() + file_name))
 
 
+# This function converts array to rgb or grayscale image
 def create_image_from_nparray(array, file_name, is_rgb):
     if is_rgb:
         Image.fromarray(np.uint8(array)).save(os.getcwd() + file_name)
@@ -15,6 +17,7 @@ def create_image_from_nparray(array, file_name, is_rgb):
         Image.fromarray(array, "L").save(os.getcwd() + file_name)
 
 
+# This function converts rgb array to binary map
 def rgb_to_binary(array):
     binary_map = np.dot(array[..., :3], [0.2989, 0.5870, 0.1140])
     binary_map[binary_map < 128] = 1
@@ -22,12 +25,14 @@ def rgb_to_binary(array):
     return binary_map
 
 
+# This function converts binary map to grayscale array
 def binary_to_grayscale(map):
     map[map == 0] = 255
     map[map == 1] = 0
     return map
 
 
+# This function converts binary map to rgb array
 def binary_to_rgb(map):
     rgb_map = np.zeros((map.shape[0], map.shape[1], 3), dtype=np.uint8)
     for i in range(map.shape[0]):
@@ -39,6 +44,7 @@ def binary_to_rgb(map):
     return rgb_map
 
 
+# This function converts segments to rgb array, every color randomly assigned to each segment
 def construct_segment_map(segment_list, x, y):
     rgb_map = np.full((x, y, 3), fill_value=255, dtype=np.uint8)
     for segment in segment_list:
@@ -52,6 +58,7 @@ def construct_segment_map(segment_list, x, y):
     return rgb_map
 
 
+# This function writes segment list to text file
 def segment_list_to_file(segment_list, file_name):
     counter = 1
     file = open(os.path.abspath(os.getcwd()) + file_name + ".txt", "w")

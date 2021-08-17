@@ -1,3 +1,4 @@
+# This function finds boundaries and mark as 1, 0 as others
 def binary_matrix_to_boundaries(binary_map):
     for i in range(binary_map.shape[0]):
         for j in range(binary_map.shape[1]):
@@ -8,6 +9,7 @@ def binary_matrix_to_boundaries(binary_map):
     binary_map[binary_map == 2] = 1
 
 
+# Checking the neighbors of node whether occupied or not. This function checks every 8 neighboring pixels
 def is_boundary(i, j, b_map):
     if j + 1 < b_map.shape[1]:
         if b_map[i][j + 1] == 1:  # Checking Right

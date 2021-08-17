@@ -1,3 +1,4 @@
+# Base class for each segment information
 class Segment:
     def __init__(self, x, y, pose, length):
         self.x = x
@@ -6,6 +7,7 @@ class Segment:
         self.length = length
 
 
+# This function finds segments and return as a list
 def find_list_of_segment(binary_map):
     segment_list = []
     for i in range(binary_map.shape[0]):
@@ -19,6 +21,7 @@ def find_list_of_segment(binary_map):
     return segment_list
 
 
+# This function finds longer segment for given node
 def find_longer_pose(binary_map, x, y):
     vertical = 0
     horizontal = 0
@@ -56,6 +59,7 @@ def find_longer_pose(binary_map, x, y):
         return "Horizontal", horizontal
 
 
+# This function deletes founded segment from binary map
 def extract_segment(binary_map, segment):
     if segment.pose == "Horizontal":
         for i in range(segment.y, segment.y + segment.length):
