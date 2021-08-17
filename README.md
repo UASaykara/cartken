@@ -12,6 +12,8 @@ This assignment includes both first and second tasks.
 * **Segmentation List** - Second Task's Goal in List Format.
 * **Segmentation Map** - Similar to Boundary Map but every segment represented different color.
 
+**Note:** There are already computed results for two maps under results file.
+
 ## Code Segments
 - **main.py:** Main simple running file
 - **segment.py:** Task 2 operations 
