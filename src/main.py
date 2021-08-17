@@ -10,7 +10,7 @@ def main():
     now = str(datetime.now())
 
     print("Boundaries are extracting...", end="\n")
-    os.mkdir(os.getcwd() + "/results/" + now)
+    os.mkdir(os.path.abspath(__file__).replace("/src/main.py", "") + "/results/" + now)
     binary_map = util.rgb_to_binary(util.convert_image_to_nparray("/images/" + image_path))
     op.binary_matrix_to_boundaries(binary_map)
     util.create_image_from_nparray(util.binary_to_rgb(binary_map), "/results/" + now + "/boundary_map.png", True)
